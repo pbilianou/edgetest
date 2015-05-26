@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Αρχική{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="home" %}
+{% endblock %}
+
+{% block navbar-right %}
+  {% if not user.is_authenticated %}
+<a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">Log in</a>
+<a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">Sign up</a>
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+{% block splash %}
+  <div class="jumbotron jumbotron-carousel corporate-jumbo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-8">
+          <h1>{% include "_brandname.html" %}</h1>
+          <p>Προγραμματίζω, μαθαίνω, δημιουργώ</p>
+	  <a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">Sign up for Free!</a>
+        </div>
+        <div class="col-md-4 col-sm-4">
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock splash %}
+
+{% block container %}
+<!-- Benefits of the Django application -->
+<a name="about"></a>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h2>Scratch παίζω και μαθαίνω</h2>
+      <p> Τι είναι το Scratch? Μια εισαγωγή  στις εντολές, τις δυνατότητες και πολλά περισσότερα για το Scratch </p>
+      <p><a class="btn btn-primary" href="{% url 'AboutScratch' %}" role="button">Περισσότερα &raquo;</a></p>
+    </div>
+    <div class="col-lg-4">
+      <h2>Βοηθητικό υλικό</h2>
+      <p>Υπάρχουν πολλές πληροφορίες για το Scratch. Δες κάποιες από αυτές  </p>
+      <p><a class="btn btn-primary" href="#" role="button">Περισσότερα &raquo;</a></p>
+    </div>
+    <div class="col-lg-4">
+      <h2>Παιχνίδι</h2>
+      <p>Δοκίμασε τις γνώσεις σου... Λύσε τις ασκήσεις και φτιάξε τα δικά σου προγράμματα</p>
+      <p><a class="btn btn-primary" href="#" role="button">Περισσότερα &raquo;</a></p>
+    </div>
+  </div>
+</div>
+
+{% endblock container %}
+
+{% block scripts %}
+<script src="{% static 'site/js/site.js' %}"></script>
+{% endblock scripts %}
+
