@@ -1,8 +1,8 @@
 
 
-# diplomatiki
+# Παίζω με το Scratch
 
-diplomatiki is a (short description) built with [Python][0] using the [Django Web Framework][1].
+Παίζω με το Scratch is a platform built with [Python][0] using the [Django Web Framework][1].
 
 This project has the following basic apps:
 
